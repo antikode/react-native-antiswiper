@@ -34,14 +34,14 @@ const App = () => {
     const renderItem = ({ item, index }) => {
         return (
         <View
-            style={{
+          style={{
             width: itemWidth,
             height: itemHeight,
-            }}>
-            <Image
+          }}>
+          <Image
             source={{ uri: item }}
             style={{ width: itemWidth, height: itemHeight, borderRadius: 8 }}
-            />
+          />
         </View>
         );
     };
