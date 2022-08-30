@@ -32,6 +32,7 @@ const AntiSwiper = (props) => {
     dotColorActive,
     style,
     indicatorStyle,
+    contentContainerStyle,
   } = props;
 
   const slidesData = horizontal === true ? [...data, {}] : data;
@@ -44,9 +45,9 @@ const AntiSwiper = (props) => {
         counter++;
 
         if (counter <= dataLength) {
-          swiper.current.scrollToIndex({ animated: true, index: counter });
+          swiper.current?.scrollToIndex({ animated: true, index: counter });
         } else {
-          swiper.current.scrollToIndex({ animated: true, index: 0 });
+          swiper.current?.scrollToIndex({ animated: true, index: 0 });
           counter = 0;
         }
       }, duration);
@@ -121,6 +122,7 @@ const AntiSwiper = (props) => {
           }}
           ItemSeparatorComponent={() => <View style={{ width: space }} />}
           viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs}
+          contentContainerStyle={contentContainerStyle}
         />
       </View>
       <AntiSwiperPagination
@@ -166,13 +168,17 @@ AntiSwiper.propTypes = {
   dotColorActive: PropTypes.string,
   style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   indicatorStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  contentContainerStyle: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
 };
 
 AntiSwiper.defaultProps = {
   auto: false,
   duration: 3000,
   space: 0,
-  spaceLastItem: false,
+  spaceLastItem: true,
   horizontal: true,
   dotWidth: 8,
   dotHeight: 8,
