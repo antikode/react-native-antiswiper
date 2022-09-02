@@ -2,6 +2,9 @@
 
 ![assets/gif/antiswiper-hv.gif](assets/gif/antiswiper-hv.gif)
 
+## CODE
+
+
 ```javascript
 ...
 import AntiSwiper from 'react-native-antiswiper';
