@@ -77,6 +77,10 @@ const App = () => {
 }
 ```
 
+### Other Example
+
+[HERE](https://github.com/antikode/react-native-antiswiper/blob/main/EXAMPLE.md)
+
 ## Contributors
 
 [@Sardi Kapilano](https://www.github.com/sardik) [@Imam Holid](https://www.github.com/im-holid) [@Andika Andriana](https://www.github.com/andika-andriana) [@Rahmat Hidayat](https://www.github.com/rahmat1929)
