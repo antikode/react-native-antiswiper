@@ -9,5 +9,8 @@ node_modules
 # Runtime data
 tmp
 
-# Examples
+# Examples folder
 examples
+
+# Assets folder
+assets
