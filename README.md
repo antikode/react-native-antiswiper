@@ -16,54 +16,64 @@ with yarn :
 
 ## Usage
 
+![assets/gif/antiswiper-h.gif](assets/gif/antiswiper-h.gif)
+
 ```javascript
 ...
 import AntiSwiper from 'react-native-antiswiper';
 
 const App = () => {
-    const itemWidth = 300;
-    const itemHeight = 200;
-    const data = [
-        'https://source.unsplash.com/random?city,night',
-        'https://source.unsplash.com/random?city',
-        'https://source.unsplash.com/random?night',
-    ];
+  const horizontal = { width: 300, height: 200 }
+  const [index, setIndex] = React.useState(0);
 
-    const [index, setIndex] = useState(0);
+  const data = [
+    `https://picsum.photos/id/10/300/200`,
+    `https://picsum.photos/id/100/300/200`,
+    `https://picsum.photos/id/1002/300/200`,
+  ];
 
-    const renderItem = ({ item, index }) => {
-        return (
-        <View
-          style={{
-            width: itemWidth,
-            height: itemHeight,
-          }}>
-          <Image
-            source={{ uri: item }}
-            style={{ width: itemWidth, height: itemHeight, borderRadius: 8 }}
-          />
-        </View>
-        );
-    };
-
+  const renderItemHorizontal = ({ item, index }) => {
     return (
-    <SafeAreaView>
-      <AntiSwiper
-        data={data}
-        renderItem={renderItem}
-        width={itemWidth}
-        height={itemHeight}
-        auto={true}
-        duration={2000}
-        space={16}
-        horizontal={true}
-        contentContainerStyle={{ marginHorizontal: 16 }}
-        indicatorStyle={{ marginHorizontal: 12 }}
-        index={index}
-        setIndex={setIndex}
+      <View
+        style={{
+          width: horizontal.width,
+          height: horizontal.height,
+        }}>
+        <Image
+          source={{ uri: item }}
+          style={{ width: horizontal.width, height: horizontal.height, borderRadius: 8 }}
+          resizeMode={'cover'}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar
+        translucent
+        backgroundColor={'transparent'}
+        barStyle={'dark-content'}
       />
+      <View style={{ paddingTop: 32, alignItems: 'center' }}>
+        <AntiSwiper
+          data={data}
+          renderItem={renderItemHorizontal}
+          width={horizontal.width}
+          height={horizontal.height}
+          auto={true}
+          duration={3000}
+          space={16}
+          spaceLastItem={true}
+          horizontal={true}
+          contentContainerStyle={{ marginHorizontal: 16 }}
+          indicatorStyle={{ marginHorizontal: 12 }}
+          index={index}
+          setIndex={setIndex}
+        />
+      </View>
     </SafeAreaView>
-  );
+  )
 }
 ```
 
