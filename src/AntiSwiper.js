@@ -54,8 +54,18 @@ const AntiSwiper = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (auto === false) {
+      setIndex(index);
+      swiper.current?.scrollToIndex({ animated: true, index: index });
+    }
+  }, [index])
+
+
   const onViewableItemsChanged = useCallback(({ viewableItems, changed }) => {
-    setIndex(viewableItems[0]?.index);
+    if (auto === true) {
+      setIndex(viewableItems[0]?.index);
+    }
   }, []);
 
   const viewabilityConfigCallbackPairs = useRef([
@@ -103,13 +113,13 @@ const AntiSwiper = (props) => {
             setIndex(
               horizontal === true
                 ? Math.round(
-                    nativeEvent.contentOffset.x /
-                      nativeEvent.layoutMeasurement.width
-                  )
+                  nativeEvent.contentOffset.x /
+                  nativeEvent.layoutMeasurement.width
+                )
                 : Math.round(
-                    nativeEvent.contentOffset.y /
-                      nativeEvent.layoutMeasurement.height
-                  )
+                  nativeEvent.contentOffset.y /
+                  nativeEvent.layoutMeasurement.height
+                )
             );
           }}
           onScrollToIndexFailed={(info) => {
@@ -178,7 +188,7 @@ AntiSwiper.defaultProps = {
   auto: false,
   duration: 3000,
   space: 0,
-  spaceLastItem: true,
+  spaceLastItem: false,
   horizontal: true,
   dotWidth: 8,
   dotHeight: 8,
