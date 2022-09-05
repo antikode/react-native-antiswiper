@@ -16,7 +16,7 @@ with yarn :
 
 ## Usage
 
-![assets/gif/antiswiper-h.gif](assets/gif/antiswiper-h.gif)
+![assets/webm/antiswiper-h.webm](assets/webm/antiswiper-h.webm)
 
 ```javascript
 ...
