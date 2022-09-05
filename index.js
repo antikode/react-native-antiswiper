@@ -1,3 +1,3 @@
 import AntiSwiper from "./src/AntiSwiper";
 
-export { AntiSwiper };
+export default AntiSwiper;
