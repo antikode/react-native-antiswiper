@@ -1,6 +1,6 @@
 {
   "name": "react-native-antiswiper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ReactNative AntiSwiper for image slider horizontal and vertical by Antikode",
   "main": "index.js",
   "scripts": {
